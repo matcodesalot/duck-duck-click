@@ -1,0 +1,22 @@
+.img-container {
+	display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+#duck {
+	/*width: 250px;*/
+	height: 250px;
+	object-fit: cover;
+}
+
+#quack-num, #quacks-per-second {
+	text-align: center;
+}
+
+#clicker {
+	width: 30px;
+	height: 40px;
+}
