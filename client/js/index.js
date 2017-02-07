@@ -125,6 +125,4 @@ $(document).ready(function() {
 	$("#load").click(function() {
 		load();
 	});
-
-	renderQuacksPerSecond();
 });
