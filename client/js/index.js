@@ -42,27 +42,12 @@ function timer() {
 	update();
 }
 
-setInterval(timer, 1000);
-
-function buyAutoClick() {
-	if(quackCount >= autoClick.price) {
-		quackCount -= autoClick.price;
-		autoClick.price = ((autoClick.amount + 1) * 1.2) * autoClick.price;
-		autoClick.amount++;
-		quacksPerSecond += autoClick.perSecond;
-		update();
-	}
-	else {
-		console.log("You can't afford");
-	}
-}
-
-function buyPond() {
-	if(quackCount >= pond.price) {
-		quackCount -= pond.price;
-		pond.price = ((pond.amount + 1) * 1.2) * pond.price;
-		pond.amount++;
-		quacksPerSecond += pond.perSecond;
+function buyShopItem(object) {
+	if(quackCount >= object.price) {
+		quackCount -= object.price;
+		object.price = ((object.amount + 1) * 1.2) * object.price;
+		object.amount++;
+		quacksPerSecond += object.perSecond;
 		update();
 	}
 	else {
@@ -77,6 +62,7 @@ function save() {
 	localStorage.setItem("autoClickPrice", autoClick.price);
 	localStorage.setItem("pondAmount", pond.amount);
 	localStorage.setItem("pondPrice", pond.price);
+	console.log("You saved " + quackCount + " quacks");
 }
 
 function load() {
@@ -93,6 +79,7 @@ function load() {
 	pond.price = localStorage.getItem("pondPrice");
 	pond.price = parseInt(pond.price);
 	update();
+	console.log("You loaded " + quackCount + " quacks");
 }
 
 function update() {
@@ -111,12 +98,12 @@ $(document).ready(function() {
 	});
 
 	$("#auto-click").click(function() {
-		buyAutoClick();
+		buyShopItem(autoClick);
 	});
 
 	$("#pond").click(function() {
-		buyPond();
-	})
+		buyShopItem(pond);
+	});
 
 	$("#save").click(function() {
 		save();
@@ -125,4 +112,6 @@ $(document).ready(function() {
 	$("#load").click(function() {
 		load();
 	});
+
+	setInterval(timer, 1000);
 });
