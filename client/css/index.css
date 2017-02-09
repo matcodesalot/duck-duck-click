@@ -4,6 +4,23 @@
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
+}
+
+#multiplier {
+	-moz-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
+    display: none;
+    margin-top: 10px;
+}
+
+#multiplier-text {
+	-moz-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
 }
 
 #duck {

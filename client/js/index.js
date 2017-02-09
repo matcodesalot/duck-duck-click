@@ -1,5 +1,6 @@
 var quackCount = 0;
 var quacksPerSecond = 0;
+var clickMultiplier = 2;
 var autoClick = {
 	price: 50,
 	amount: 0,
@@ -39,6 +40,11 @@ function renderQuacksPerSecond() {
 function timer() {
 	quackCount += autoClick.amount * autoClick.perSecond;
 	quackCount += pond.amount * pond.perSecond;
+	update();
+}
+
+function duckClick() {
+	quackCount += clickMultiplier;
 	update();
 }
 
@@ -93,8 +99,13 @@ function update() {
 $(document).ready(function() {
 	$(".img-container").on("click", "img", function(e) {
 		e.preventDefault();
-		quackCount++;
-		update();
+		duckClick();
+		console.log(e.pageX, e.pageY);
+		$("#multiplier").css("position", "absolute");
+		$("#multiplier").css("top", e.pageY);
+		$("#multiplier").css("left", e.pageX);
+		$("#multiplier-text").text("+" + clickMultiplier);
+		$("#multiplier").show().fadeOut(1000);
 	});
 
 	$("#auto-click").click(function() {
