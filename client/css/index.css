@@ -10,17 +10,19 @@
 }
 
 #multiplier {
+	position: absolute;
 	-moz-user-select: none;
     -webkit-user-select: none;
     user-select: none;
-    display: none;
     margin-top: 10px;
 }
 
-#multiplier-text {
+.multiplier-text {
+	position: absolute;
 	-moz-user-select: none;
     -webkit-user-select: none;
     user-select: none;
+    color: blue;
 }
 
 #duck {

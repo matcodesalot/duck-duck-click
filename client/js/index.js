@@ -48,6 +48,16 @@ function duckClick() {
 	update();
 }
 
+function clickEffect(e) {
+	$("#multiplier").css("top", e.pageY);
+	$("#multiplier").css("left", e.pageX);
+	$("#multiplier").append("<h2 class='multiplier-text'>+" + clickMultiplier + "</h2>");
+	$(".multiplier-text").fadeOut("slow", function() {
+		$(this).remove();
+	});
+	//console.log(e.pageX, e.pageY);
+}
+
 function buyShopItem(object) {
 	if(quackCount >= object.price) {
 		quackCount -= object.price;
@@ -98,14 +108,8 @@ function update() {
 
 $(document).ready(function() {
 	$(".img-container").on("click", "img", function(e) {
-		e.preventDefault();
 		duckClick();
-		console.log(e.pageX, e.pageY);
-		$("#multiplier").css("position", "absolute");
-		$("#multiplier").css("top", e.pageY);
-		$("#multiplier").css("left", e.pageX);
-		$("#multiplier-text").text("+" + clickMultiplier);
-		$("#multiplier").show().fadeOut(1000);
+		clickEffect(e);
 	});
 
 	$("#auto-click").click(function() {
