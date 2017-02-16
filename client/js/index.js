@@ -1,6 +1,9 @@
 var quackCount = 0;
 var quacksPerSecond = 0;
-var clickMultiplier = 2;
+var clickMultiplier = {
+	price: 1000,
+	amount: 1,
+};
 var autoClick = {
 	price: 50,
 	amount: 0,
@@ -33,6 +36,11 @@ function renderPond() {
 	$("#pond-amount").text("You own " + pond.amount + " ponds");
 }
 
+function renderClickMultiplier() {
+	$("#click-multiplier-price").text(clickMultiplier.price + " quacks");
+	$("#click-multiplier-amount").text("x" + clickMultiplier.amount);
+}
+
 function renderQuacksPerSecond() {
 	$("#quacks-per-second").text("Quacks Per Second: " + quacksPerSecond);
 }
@@ -44,18 +52,17 @@ function timer() {
 }
 
 function duckClick() {
-	quackCount += clickMultiplier;
+	quackCount += clickMultiplier.amount;
 	update();
 }
 
 function clickEffect(e) {
 	$("#multiplier").css("top", e.pageY);
 	$("#multiplier").css("left", e.pageX);
-	$("#multiplier").append("<h2 class='multiplier-text'>+" + clickMultiplier + "</h2>");
+	$("#multiplier").append("<h2 class='multiplier-text'>+" + clickMultiplier.amount + "</h2>");
 	$(".multiplier-text").fadeOut("slow", function() {
 		$(this).remove();
 	});
-	//console.log(e.pageX, e.pageY);
 }
 
 function buyShopItem(object) {
@@ -71,6 +78,18 @@ function buyShopItem(object) {
 	}
 }
 
+function buyClickMultiplier() {
+	if(quackCount >= clickMultiplier.price) {
+		quackCount -= clickMultiplier.price;
+		clickMultiplier.price += 1000;
+		clickMultiplier.amount++;
+		update();
+	}
+	else {
+		console.log("You can't afford");
+	}
+}
+
 function save() {
 	localStorage.setItem("quackCount", quackCount);
 	localStorage.setItem("quacksPerSecond", quacksPerSecond);
@@ -78,6 +97,8 @@ function save() {
 	localStorage.setItem("autoClickPrice", autoClick.price);
 	localStorage.setItem("pondAmount", pond.amount);
 	localStorage.setItem("pondPrice", pond.price);
+	localStorage.setItem("clickMultiplierAmount", clickMultiplier.amount);
+	localStorage.setItem("clickMultiplierPrice", clickMultiplier.price);
 	console.log("You saved " + quackCount + " quacks");
 }
 
@@ -94,6 +115,10 @@ function load() {
 	pond.amount = parseInt(pond.amount);
 	pond.price = localStorage.getItem("pondPrice");
 	pond.price = parseInt(pond.price);
+	clickMultiplier.amount = localStorage.getItem("clickMultiplierAmount");
+	clickMultiplier.amount = parseInt(clickMultiplier.amount);
+	clickMultiplier.price = localStorage.getItem("clickMultiplierPrice");
+	clickMultiplier.price = parseInt(clickMultiplier.price);
 	update();
 	console.log("You loaded " + quackCount + " quacks");
 }
@@ -104,6 +129,7 @@ function update() {
 	renderAutoClick();
 	renderPond();
 	renderQuacksPerSecond();
+	renderClickMultiplier();
 }
 
 $(document).ready(function() {
@@ -118,6 +144,10 @@ $(document).ready(function() {
 
 	$("#pond").click(function() {
 		buyShopItem(pond);
+	});
+
+	$("#click-multiplier").click(function() {
+		buyClickMultiplier();
 	});
 
 	$("#save").click(function() {
