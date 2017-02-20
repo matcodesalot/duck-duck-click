@@ -123,6 +123,13 @@ function load() {
 	console.log("You loaded " + quackCount + " quacks");
 }
 
+function playQuack() {
+	$("#quack-sound")[0].volume = 0.2;
+	$("#quack-sound")[0].load();
+	$("#quack-sound")[0].play();
+	console.log("hi");
+}
+
 function update() {
 	renderQuacks();
 	renderTitle();
@@ -136,6 +143,7 @@ $(document).ready(function() {
 	$(".img-container").on("click", "img", function(e) {
 		duckClick();
 		clickEffect(e);
+		playQuack();
 	});
 
 	$("#auto-click").click(function() {
