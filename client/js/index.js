@@ -123,11 +123,13 @@ function load() {
 	console.log("You loaded " + quackCount + " quacks");
 }
 
-function playQuack() {
-	$("#quack-sound")[0].volume = 0.2;
-	$("#quack-sound")[0].load();
-	$("#quack-sound")[0].play();
-	console.log("hi");
+function moveRubberDuck() {
+	var height = $(document).height();
+	$("#rubber-duck").animate({
+		top: height
+	}, 5000, function() {
+		$(this).remove();
+	});
 }
 
 function update() {
@@ -137,6 +139,12 @@ function update() {
 	renderPond();
 	renderQuacksPerSecond();
 	renderClickMultiplier();
+}
+
+function playQuack() {
+	$("#quack-sound")[0].volume = 0.2;
+	$("#quack-sound")[0].load();
+	$("#quack-sound")[0].play();
 }
 
 $(document).ready(function() {
@@ -158,6 +166,11 @@ $(document).ready(function() {
 		buyClickMultiplier();
 	});
 
+	$("#rubber-duck-div").on("click", "img", function() {
+		console.log("YOU DID IT");
+		$(this).remove();
+	})
+
 	$("#save").click(function() {
 		save();
 	});
@@ -167,4 +180,6 @@ $(document).ready(function() {
 	});
 
 	setInterval(timer, 1000);
+
+	moveRubberDuck();
 });
