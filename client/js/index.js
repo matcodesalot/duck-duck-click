@@ -36,15 +36,17 @@ function renderXP() {
 }
 
 function renderAutoClick() {
+	var isPlural = autoClick.amount > 1 || autoClick.amount === 0 ? " auto clickers" : " auto clicker";
 	autoClick.price = Math.floor(autoClick.price);
 	$("#auto-click-price").text(autoClick.price + " quacks");
-	$("#auto-click-amount").text("You own " + autoClick.amount + " auto clickers");
+	$("#auto-click-amount").text("You own " + autoClick.amount + isPlural);
 }
 
 function renderPond() {
+	var isPlural = pond.amount > 1 || pond.amount === 0 ? " ponds" : " pond";
 	pond.price = Math.floor(pond.price);
 	$("#pond-price").text(pond.price + " quacks");
-	$("#pond-amount").text("You own " + pond.amount + " ponds");
+	$("#pond-amount").text("You own " + pond.amount + isPlural);
 }
 
 function timer() {
