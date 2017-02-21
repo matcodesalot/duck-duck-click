@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>0 Quacks</title>
+	<title>0 Quacks - DuckDuckClick</title>
 	<link rel="stylesheet" type="text/css" href="css/index.css">
 </head>
 <body>
@@ -9,9 +9,14 @@
 		<!-- container for .multiplier-text -->
 	</div>
 
+	<div class="xp">
+		<p id="xp-level">Level 1</p>
+		<p id="xp-current">0/10</p>
+	</div>
+
 	<div class="img-container">
 		<img id="duck" draggable="false" src="assets/duck.jpg">
-		<div id="rubber-duck-div"><img id="rubber-duck" src="assets/rubberduck.png"></div>
+		<div id="rubber-duck-div"><img id="rubber-duck" draggable="false" src="assets/rubberduck.png"></div>
 	</div>
 
 	<div class="quacks">
@@ -19,21 +24,24 @@
 		<h2 id="quacks-per-second">-</h2>
 	</div>
 
-	<button id="save" type="button">Save</button>
-	<button id="load" type="button">Load</button>
-
-	<h1>shop</h1>
-	<button id="auto-click" type="button"><img class="shop-icon" src="assets/clicker.png"></button>
-	<p id="auto-click-price"></p>
-	<p id="auto-click-amount"></p>
-
-	<button id="pond" type="button"><img class="shop-icon" src="assets/pond.jpeg"></button>
-	<p id="pond-price"></p>
-	<p id="pond-amount"></p>
-
-	<button id="click-multiplier" type="button"><img class="shop-icon" src="assets/clicker.png"></button>
-	<p id="click-multiplier-price"></p>
-	<p id="click-multiplier-amount"></p>
+	<div class="options">
+		<button id="save" type="button">Save</button>
+		<button id="load" type="button">Load</button>
+	</div>
+	
+	<ul>
+		<h1>shop</h1>
+		<li>
+			<button id="auto-click" type="button"><img class="shop-icon" src="assets/clicker.png"></button>
+			<p id="auto-click-price"></p>
+			<p id="auto-click-amount"></p>
+		</li>
+		<li>
+			<button id="pond" type="button"><img class="shop-icon" src="assets/pond.jpeg"></button>
+			<p id="pond-price"></p>
+			<p id="pond-amount"></p>
+		</li>
+	</ul>
 
 	<audio id="quack-sound" src="assets/quack.m4a"></audio>
 	<script

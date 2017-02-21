@@ -31,10 +31,6 @@
 	object-fit: cover;
 }
 
-#quack-num, #quacks-per-second {
-	text-align: center;
-}
-
 .shop-icon {
 	width: 50px;
 	height: 50px;
@@ -49,4 +45,13 @@
 	border: 1px solid black;
 	width: 100px;
     height: 100px;
+}
+
+.quacks, .options {
+	margin: 0 auto;
+	text-align: center;
+}
+
+li {
+	display: inline-block;
 }
