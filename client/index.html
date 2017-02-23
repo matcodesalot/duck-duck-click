@@ -9,11 +9,6 @@
 		<!-- container for .multiplier-text -->
 	</div>
 
-	<div class="xp">
-		<p id="xp-level">Level 1</p>
-		<p id="xp-current">0/10</p>
-	</div>
-
 	<div class="img-container">
 		<img id="duck" draggable="false" src="assets/duck.jpg">
 		<div id="rubber-duck-div"><img id="rubber-duck" draggable="false" src="assets/rubberduck.png"></div>
@@ -27,19 +22,44 @@
 	<div class="options">
 		<button id="save" type="button">Save</button>
 		<button id="load" type="button">Load</button>
+		<label><input id="mute" type="checkbox" name="mute">Mute</label>
 	</div>
 	
 	<ul>
-		<h1>shop</h1>
-		<li>
-			<button id="auto-click" type="button"><img class="shop-icon" src="assets/clicker.png"></button>
-			<p id="auto-click-price"></p>
-			<p id="auto-click-amount"></p>
+		<li class="title">
+			<h1 class="shop">Shop</h1>
+			<h2 id="xp-level">Level 1</h2>
+			<h2 id="xp-current">xp: 0/10</h2>
 		</li>
 		<li>
-			<button id="pond" type="button"><img class="shop-icon" src="assets/pond.jpeg"></button>
+			<h3 id="auto-click-title">Auto Click</h3>
+			<button id="auto-click" type="button"><img class="shop-icon" src="assets/click.png"></button>
+			<p id="auto-click-price"></p>
+			<h3 id="auto-click-amount"></h3>
+		</li>
+		<li>
+			<h3 id="pond-title">Pond</h3>
+			<button id="pond" type="button"><img class="shop-icon" src="assets/pond.png"></button>
 			<p id="pond-price"></p>
-			<p id="pond-amount"></p>
+			<h3 id="pond-amount"></h3>
+		</li>
+		<li>
+			<h3 id="bread-title">Bread</h3>
+			<button id="bread" type="button"><img class="shop-icon" src="assets/bread.png"></button>
+			<p id="bread-price"></p>
+			<h3 id="bread-amount"></h3>
+		</li>
+		<li>
+			<h3 id="feather-cookie-title">Feather Cookie</h3>
+			<button id="feather-cookie" type="button"><img class="shop-icon" src="assets/cookie.png"></button>
+			<p id="feather-cookie-price"></p>
+			<h3 id="feather-cookie-amount"></h3>
+		</li>
+		<li>
+			<h3 id="heavy-metal-title">Heavy Metal</h3>
+			<button id="heavy-metal" type="button"><img class="shop-icon" src="assets/demon.png"></button>
+			<p id="heavy-metal-price"></p>
+			<h3 id="heavy-metal-amount"></h3>
 		</li>
 	</ul>
 

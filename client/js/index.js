@@ -11,9 +11,24 @@ var autoClick = {
 	perSecond: 1,
 };
 var pond = {
-	price: 160,
+	price: 280,
 	amount: 0,
 	perSecond: 3,
+};
+var bread = {
+	price: 7500,
+	amount: 0,
+	perSecond: 10,
+};
+var featherCookie = {
+	price: 35500,
+	amount: 0,
+	perSecond: 135,
+};
+var heavyMetal = {
+	price: 666666,
+	amount: 0,
+	perSecond: 666,
 };
 
 function renderTitle() {
@@ -32,31 +47,51 @@ function renderQuacksPerSecond() {
 function renderXP() {
 	xp.toNextLevel = Math.floor(xp.toNextLevel);
 	$("#xp-level").text("Level " + xp.level);
-	$("#xp-current").text(xp.current + "/" + xp.toNextLevel);
+	$("#xp-current").text("xp: " + xp.current + "/" + xp.toNextLevel);
 }
 
 function renderAutoClick() {
-	var isPlural = autoClick.amount > 1 || autoClick.amount === 0 ? " auto clickers" : " auto clicker";
 	autoClick.price = Math.floor(autoClick.price);
 	$("#auto-click-price").text(autoClick.price + " quacks");
-	$("#auto-click-amount").text("You own " + autoClick.amount + isPlural);
+	$("#auto-click-amount").text(autoClick.amount);
 }
 
 function renderPond() {
-	var isPlural = pond.amount > 1 || pond.amount === 0 ? " ponds" : " pond";
 	pond.price = Math.floor(pond.price);
 	$("#pond-price").text(pond.price + " quacks");
-	$("#pond-amount").text("You own " + pond.amount + isPlural);
+	$("#pond-amount").text(pond.amount);
+}
+
+function renderBread() {
+	bread.price = Math.floor(bread.price);
+	$("#bread-price").text(bread.price + " quacks");
+	$("#bread-amount").text(bread.amount);
+}
+
+function renderFeatherCookie() {
+	featherCookie.price = Math.floor(featherCookie.price);
+	$("#feather-cookie-price").text(featherCookie.price + " quacks");
+	$("#feather-cookie-amount").text(featherCookie.amount);
+}
+
+function renderHeavyMetal() {
+	heavyMetal.price = Math.floor(heavyMetal.price);
+	$("#heavy-metal-price").text(heavyMetal.price + " quacks");
+	$("#heavy-metal-amount").text(heavyMetal.amount);
 }
 
 function timer() {
 	quackCount += autoClick.amount * autoClick.perSecond;
 	quackCount += pond.amount * pond.perSecond;
+	quackCount += bread.amount * bread.perSecond;
+	quackCount += featherCookie.amount * featherCookie.perSecond;
+	quackCount += heavyMetal.amount * heavyMetal.perSecond;
 	update();
 }
 
 function duckClick() {
 	quackCount += xp.level;
+	xp.current += xp.level;
 	update();
 }
 
@@ -80,10 +115,6 @@ function buyShopItem(object) {
 	else {
 		console.log("You can't afford");
 	}
-}
-
-function increaseXP() {
-	xp.current += xp.level;
 }
 
 function levelUp() {
@@ -130,6 +161,21 @@ function load() {
 	console.log("You loaded " + quackCount + " quacks");
 }
 
+function playQuack(volume) {
+	$("#quack-sound")[0].volume = volume;
+	$("#quack-sound")[0].load();
+	$("#quack-sound")[0].play();
+}
+
+function isMuted() {
+	if($("#mute").is(":checked")) {
+		playQuack(0);
+	}
+	else {
+		playQuack(0.2);
+	}
+}
+
 function moveRubberDuck() {
 	var height = $(document).height();
 	$("#rubber-duck").animate({
@@ -144,25 +190,20 @@ function update() {
 	renderTitle();
 	renderAutoClick();
 	renderPond();
+	renderBread();
+	renderFeatherCookie();
+	renderHeavyMetal();
 	renderQuacksPerSecond();
-	renderXP();
 
 	levelUp();
-}
-
-function playQuack() {
-	$("#quack-sound")[0].volume = 0.2;
-	$("#quack-sound")[0].load();
-	$("#quack-sound")[0].play();
 }
 
 $(document).ready(function() {
 	$(".img-container").on("click", "img", function(e) {
 		duckClick();
-		increaseXP();
 		renderXP();
 		clickEffect(e);
-		playQuack();
+		isMuted();
 	});
 
 	$("#auto-click").click(function() {
@@ -171,6 +212,18 @@ $(document).ready(function() {
 
 	$("#pond").click(function() {
 		buyShopItem(pond);
+	});
+
+	$("#bread").click(function() {
+		buyShopItem(bread);
+	});
+
+	$("#feather-cookie").click(function() {
+		buyShopItem(featherCookie);
+	});
+
+	$("#heavy-metal").click(function() {
+		buyShopItem(heavyMetal);
 	});
 
 	$("#rubber-duck-div").on("click", "img", function() {

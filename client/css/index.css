@@ -34,6 +34,13 @@
 .shop-icon {
 	width: 50px;
 	height: 50px;
+	image-rendering: optimizeSpeed;             /* STOP SMOOTHING, GIVE ME SPEED  */
+    image-rendering: -moz-crisp-edges;          /* Firefox                        */
+    image-rendering: -o-crisp-edges;            /* Opera                          */
+    image-rendering: -webkit-optimize-contrast; /* Chrome (and eventually Safari) */
+    image-rendering: pixelated; /* Chrome */
+    image-rendering: optimize-contrast;         /* CSS3 Proposed                  */
+    -ms-interpolation-mode: nearest-neighbor;   /* IE8+                           */
 }
 
 #rubber-duck-div {
@@ -52,6 +59,21 @@
 	text-align: center;
 }
 
+ul {
+	text-align: center;
+	padding: 0;
+}
+
 li {
 	display: inline-block;
+	padding-left: 30px;
+	padding-right: 30px;
+}
+
+.title {
+	border: 1px solid black;
+}
+
+.shop {
+	text-decoration: underline;
 }
