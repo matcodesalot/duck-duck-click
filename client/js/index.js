@@ -273,6 +273,4 @@ $(document).ready(function() {
 
 	setInterval(timer, 1000);
 	setInterval(spawnRubberDuck, 15000);
-
-	//spawnRubberDuck();
 });
