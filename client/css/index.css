@@ -41,6 +41,16 @@ html, body {
 	height: 250px;
 	object-fit: cover;
 	margin-top: 20px;
+	border: 2px solid black;
+}
+
+#duck:hover {
+	cursor: pointer;
+}
+
+#duck:active {
+	-moz-animation:bounceOut .4s linear;
+    -webkit-animation:bounceOut .4s linear;
 }
 
 .shop-icon {
@@ -59,11 +69,14 @@ html, body {
 	position: absolute;
 }
 
-#rubber-duck {
+#rubber-duck-div:hover {
+	cursor: pointer;
+}
+
+.rubber-duck {
 	position: relative;
-	border: 1px solid black;
-	width: 100px;
-    height: 100px;
+	width: 50px;
+    height: 50px;
 }
 
 .quacks, .options {
@@ -89,4 +102,20 @@ li {
 
 .shop {
 	text-decoration: underline;
+}
+
+@-moz-keyframes bounceOut {
+        0%{ box-shadow: 0 0 0 4px black; opacity:1;}
+        25%{ box-shadow: 0 0 0 1px black; opacity:1;}
+        50%{ box-shadow: 0 0 0 7px black; opacity:1; }
+        75%{ box-shadow: 0 0 0 4px black; opacity:1;}
+        100%{ box-shadow: 0 0 0 5px black; opacity:1;}
+}
+
+@-webkit-keyframes bounceOut {
+        0%{ box-shadow: 0 0 0 4px black; opacity:1;}
+        25%{ box-shadow: 0 0 0 1px black; opacity:1;}
+        50%{ box-shadow: 0 0 0 7px black; opacity:1; }
+        75%{ box-shadow: 0 0 0 4px black; opacity:1;}
+        100%{ box-shadow: 0 0 0 5px black; opacity:1;}
 }

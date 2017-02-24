@@ -16,7 +16,7 @@ var pond = {
 	perSecond: 3,
 };
 var bread = {
-	price: 7500,
+	price: 10000,
 	amount: 0,
 	perSecond: 10,
 };
@@ -95,10 +95,15 @@ function duckClick() {
 	update();
 }
 
-function clickEffect(e) {
+function rubberDuckClick() {
+	quackCount += 1000;
+	update();
+}
+
+function clickEffect(e, amount) {
 	$("#multiplier").css("top", e.pageY);
 	$("#multiplier").css("left", e.pageX);
-	$("#multiplier").append("<h2 class='multiplier-text'>+" + xp.level + "</h2>");
+	$("#multiplier").append("<h2 class='multiplier-text'>+" + amount + "</h2>");
 	$(".multiplier-text").fadeOut("slow", function() {
 		$(this).remove();
 	});
@@ -194,13 +199,20 @@ function isMuted() {
 	}
 }
 
-function moveRubberDuck() {
-	var height = $(document).height();
-	$("#rubber-duck").animate({
-		top: height
-	}, 5000, function() {
-		$(this).remove();
-	});
+function spawnRubberDuck() {
+	var width = $(window).width() - 50;
+	var height = $(window).height() - 50;
+	var randX = Math.floor(Math.random() * width);
+	var randY = Math.floor(Math.random() * height);
+
+	$("<img class='rubber-duck' draggable='false' src='assets/rubberduck.png'>")
+		.appendTo("#rubber-duck-div")
+		.delay(15000)
+		.queue(function() {
+			$(this).remove();
+		});
+	$("#rubber-duck-div").css("top", randY);
+	$("#rubber-duck-div").css("left", randX);
 }
 
 function update() {
@@ -220,7 +232,7 @@ $(document).ready(function() {
 	$(".img-container").on("click", "img", function(e) {
 		duckClick();
 		renderXP();
-		clickEffect(e);
+		clickEffect(e, xp.level);
 		isMuted();
 	});
 
@@ -244,8 +256,10 @@ $(document).ready(function() {
 		buyShopItem(heavyMetal);
 	});
 
-	$("#rubber-duck-div").on("click", "img", function() {
-		console.log("YOU DID IT");
+	$("#rubber-duck-div").on("click", "img", function(e) {
+		rubberDuckClick();
+		clickEffect(e, 1000);
+		isMuted();
 		$(this).remove();
 	});
 
@@ -258,6 +272,7 @@ $(document).ready(function() {
 	});
 
 	setInterval(timer, 1000);
+	setInterval(spawnRubberDuck, 15000);
 
-	moveRubberDuck();
+	//spawnRubberDuck();
 });
