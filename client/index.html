@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<meta name="viewport" content="width=device-width" charset="utf-8">
 	<title>0 Quacks - DuckDuckClick</title>
 	<link rel="stylesheet" type="text/css" href="css/index.css">
 </head>
@@ -9,9 +10,10 @@
 		<!-- container for .multiplier-text -->
 	</div>
 
+	<div id="rubber-duck-div"><!-- container for .rubber-duck --></div>
+
 	<div class="img-container">
 		<img id="duck" draggable="false" src="assets/duck.jpg">
-		<div id="rubber-duck-div"><!-- container for .rubber-duck --></div>
 	</div>
 
 	<div class="quacks">
@@ -24,7 +26,7 @@
 		<button id="load" type="button">Load</button>
 		<label><input id="mute" type="checkbox" name="mute">Mute</label>
 	</div>
-	
+
 	<ul>
 		<li class="title">
 			<h1 class="shop">Shop</h1>
@@ -62,6 +64,10 @@
 			<h3 id="heavy-metal-amount"></h3>
 		</li>
 	</ul>
+
+	
+	
+	
 
 	<audio id="quack-sound" src="assets/quack.m4a"></audio>
 	<script

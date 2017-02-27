@@ -236,6 +236,13 @@ $(document).ready(function() {
 		isMuted();
 	});
 
+	$("#rubber-duck-div").on("click", "img", function(e) {
+		rubberDuckClick();
+		clickEffect(e, 1000);
+		isMuted();
+		$(this).remove();
+	});
+
 	$("#auto-click").click(function() {
 		buyShopItem(autoClick);
 	});
@@ -254,13 +261,6 @@ $(document).ready(function() {
 
 	$("#heavy-metal").click(function() {
 		buyShopItem(heavyMetal);
-	});
-
-	$("#rubber-duck-div").on("click", "img", function(e) {
-		rubberDuckClick();
-		clickEffect(e, 1000);
-		isMuted();
-		$(this).remove();
 	});
 
 	$("#save").click(function() {
