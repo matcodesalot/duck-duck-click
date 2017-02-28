@@ -1,0 +1,87 @@
+/* Landing Page */
+
+body {
+    background-image: url("../assets/8-bit-wallpaper.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    font-family: 'Baloo', cursive;
+}
+
+h1 {
+    font-size: 48px;
+    text-align: center;
+    padding-bottom: 1em;
+}
+
+span {
+
+}
+
+.aligner {
+    padding: 4em;
+}
+
+.free {
+    font-size: 60px;
+}
+
+.parent {
+    text-align: center;
+}
+
+.link-button {
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    border-radius: 8px;
+    border: solid 1px #20538D;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.4);
+    -webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.4), 0 1px 1px rgba(0, 0, 0, 0.2);
+    -moz-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.4), 0 1px 1px rgba(0, 0, 0, 0.2);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.4), 0 1px 1px rgba(0, 0, 0, 0.2);
+    background: #4479BA;
+    color: #FFF;
+    font-size: x-large;
+    padding: 16px 24px;
+    text-decoration: none;
+}
+
+.link-button:active {
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    border-radius: 8px;
+    border: solid 1px #20538D;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.4);
+    -webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.4), 0 1px 1px rgba(0, 0, 0, 0.2);
+    -moz-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.4), 0 1px 1px rgba(0, 0, 0, 0.2);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.4), 0 1px 1px rgba(0, 0, 0, 0.2);
+    background: #2c507c;
+    color: #FFF;
+    font-size: x-large;
+    padding: 16px 24px;
+    text-decoration: none;
+}
+
+footer {
+    position: absolute;
+    bottom: 0px;
+    right: 20px;
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+ul {
+    list-style: none;
+    text-align: center;
+    padding: 0;
+}
+
+.horizontal {
+    margin-top: -10px;
+}
+
+.horizontal li {
+    display: inline;
+}
