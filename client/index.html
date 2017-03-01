@@ -12,30 +12,15 @@
 
 	<div id="rubber-duck-div"><!-- container for .rubber-duck --></div>
 
-	<div class="description">
-		<p class="description-text">-</p>
-	</div>
-
-	<div class="img-container">
-		<img id="duck" draggable="false" src="assets/duck.jpg">
-	</div>
-
-	<div class="quacks">
-		<h1 id=quack-num>-</h1>
-		<h2 id="quacks-per-second">-</h2>
-	</div>
-
-	<div class="options">
-		<button id="save" type="button">Save</button>
-		<button id="load" type="button">Load</button>
-		<label><input id="mute" type="checkbox" name="mute">Mute</label>
-	</div>
-
 	<ul>
+		<li>
+			<div class="description">
+				<p class="description-text">-</p>
+			</div>
+		</li>
 		<li class="title">
-			<h1 class="shop">Shop</h1>
-			<h2 id="xp-level">Level 1</h2>
-			<h2 id="xp-current">xp: 0/10</h2>
+			<h3 id="xp-level">Level 1</h3>
+			<h3 id="xp-current">xp: 0/10</h3>
 		</li>
 		<li>
 			<h3 id="auto-click-title">Auto Click</h3>
@@ -68,6 +53,23 @@
 			<h3 id="heavy-metal-amount"></h3>
 		</li>
 	</ul>
+
+	<div class="img-container">
+		<img id="duck" draggable="false" src="assets/duck.jpg">
+	</div>
+
+	<div class="quacks">
+		<h1 id=quack-num>-</h1>
+		<h2 id="quacks-per-second">-</h2>
+	</div>
+
+	<div class="options">
+		<button id="save" type="button">Save</button>
+		<button id="load" type="button">Load</button>
+		<label><input id="mute" type="checkbox" name="mute">Mute</label>
+	</div>
+
+
 
 	<audio id="quack-sound" src="assets/quack.m4a"></audio>
 	<script
