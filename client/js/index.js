@@ -133,7 +133,7 @@ function buyShopItem(object) {
 		update();
 	}
 	else {
-		console.log("You can't afford");
+		$(".description-text").text("You can not afford this item");
 	}
 }
 
@@ -161,7 +161,7 @@ function save() {
 	localStorage.setItem("level", xp.level);
 	localStorage.setItem("currentXP", xp.current);
 	localStorage.setItem("toNextLevel", xp.toNextLevel);
-	console.log("You saved " + quackCount + " quacks");
+	$(".description-text").text("You saved " + quackCount + " quacks");
 }
 
 function load() {
@@ -196,7 +196,7 @@ function load() {
 	xp.toNextLevel = localStorage.getItem("toNextLevel");
 	xp.toNextLevel = parseInt(xp.toNextLevel);
 	update();
-	console.log("You loaded " + quackCount + " quacks");
+	$(".description-text").text("You loaded " + quackCount + " quacks");
 }
 
 function playQuack(volume) {
