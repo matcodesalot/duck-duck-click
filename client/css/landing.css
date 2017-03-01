@@ -72,6 +72,10 @@ footer {
     align-items: center;
 }
 
+footer ul li p, footer ul li a {
+    color: #3b2182;
+}
+
 ul {
     list-style: none;
     text-align: center;
@@ -84,4 +88,5 @@ ul {
 
 .horizontal li {
     display: inline;
+    padding: 5px;
 }

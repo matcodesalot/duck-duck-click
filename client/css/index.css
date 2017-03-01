@@ -1,3 +1,5 @@
+/* Game Page */
+
 * {
     box-sizing: border-box;
 }
@@ -76,7 +78,7 @@ html, body {
 	position: absolute;
 }
 
-#rubber-duck-div:hover {
+#rubber-duck-div:hover, button:hover, input:hover {
 	cursor: pointer;
 }
 

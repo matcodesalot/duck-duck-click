@@ -50,34 +50,49 @@ function renderXP() {
 	$("#xp-current").text("xp: " + xp.current + "/" + xp.toNextLevel);
 }
 
+function renderDescriptionText(identifier, text) {
+	$(identifier)
+	.mouseenter(function() {
+		$(".description-text").text(text);
+	})
+	.mouseleave(function() {
+		$(".description-text").text("-");
+	});
+}
+
 function renderAutoClick() {
 	autoClick.price = Math.floor(autoClick.price);
 	$("#auto-click-price").text(autoClick.price + " quacks");
 	$("#auto-click-amount").text(autoClick.amount);
+	renderDescriptionText("#auto-click", autoClick.perSecond + " quack per second");
 }
 
 function renderPond() {
 	pond.price = Math.floor(pond.price);
 	$("#pond-price").text(pond.price + " quacks");
 	$("#pond-amount").text(pond.amount);
+	renderDescriptionText("#pond", pond.perSecond + " quacks per second");
 }
 
 function renderBread() {
 	bread.price = Math.floor(bread.price);
 	$("#bread-price").text(bread.price + " quacks");
 	$("#bread-amount").text(bread.amount);
+	renderDescriptionText("#bread", bread.perSecond + " quacks per second");
 }
 
 function renderFeatherCookie() {
 	featherCookie.price = Math.floor(featherCookie.price);
 	$("#feather-cookie-price").text(featherCookie.price + " quacks");
 	$("#feather-cookie-amount").text(featherCookie.amount);
+	renderDescriptionText("#feather-cookie", featherCookie.perSecond + " quacks per second");
 }
 
 function renderHeavyMetal() {
 	heavyMetal.price = Math.floor(heavyMetal.price);
 	$("#heavy-metal-price").text(heavyMetal.price + " quacks");
 	$("#heavy-metal-amount").text(heavyMetal.amount);
+	renderDescriptionText("#heavy-metal", heavyMetal.perSecond + " quacks per second");
 }
 
 function timer() {
