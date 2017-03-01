@@ -56,7 +56,7 @@ function renderDescriptionText(identifier, text) {
 		$(".description-text").text(text);
 	})
 	.mouseleave(function() {
-		$(".description-text").text("-");
+		$(".description-text").html("&nbsp");
 	});
 }
 
