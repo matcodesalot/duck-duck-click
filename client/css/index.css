@@ -85,7 +85,7 @@ html, body {
 	position: absolute;
 }
 
-#rubber-duck-div:hover, button:hover, input:hover {
+#rubber-duck-div:hover, button:hover, input:hover, label:hover {
 	cursor: pointer;
 }
 
@@ -114,8 +114,43 @@ ul {
 
 li {
 	/*display: inline-block;*/
-	padding-left: 30px;
-	padding-right: 30px;
+}
+
+.button-holder {
+	text-align: center;
+}
+
+.my-button {
+	width: 220px;
+}
+
+.item-title {
+	text-align: center;
+	margin-bottom: 5px;
+}
+
+.left {
+	float: left;
+	padding-right: 20px;
+}
+
+.right {
+	float: right;
+	text-align: right;
+}
+
+.item-amount {
+	display: inline;
+	border: 1px solid black;
+}
+
+.item-text {
+	display: inline-block;
+	text-align: right;
+}
+
+.item-text h3 {
+	text-align: right;
 }
 
 .title {

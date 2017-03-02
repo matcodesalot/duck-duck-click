@@ -222,7 +222,7 @@ function spawnRubberDuck() {
 
 	$("<img class='rubber-duck' draggable='false' src='assets/rubberduck.png'>")
 		.appendTo("#rubber-duck-div")
-		.delay(15000)
+		.delay(10000)
 		.queue(function() {
 			$(this).remove();
 		});
